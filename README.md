@@ -47,5 +47,5 @@ $$
 
 - Se modifica el método ```__init__``` de la clase ```Tank``` del archivo ```CryoEvap/cryoevap/storage_tanks/tank.py```. Ahora, tiene como argumento el flujo másico de entrada $\dot{m}_{L}$.
 
-- Se modifica la clase ```Tank``` del archivo ```CryoEvap/cryoevap/storage_tanks/tank.py``` en el método ```sys_liq_volume```. Ahora, en vez de retornar 
+- Se modifica la clase ```Tank``` del archivo ```CryoEvap/cryoevap/storage_tanks/tank.py``` en el método ```sys_liq_volume```. Ahora, en vez de retornar ```-1 / self.cryogen.rho_L * (Q_L_tot/dH_LV)``` (tasa de cambio del volumen del líquido en ausencia de flujo másico de entrada), retorna ```-1 / self.cryogen.rho_L * (Q_L_tot/dH_LV) + (self.m_L / self.cryogen.rho_L)``` (la tasa de cambio del volumen actualizada)
 >>>>>>> 95382f2 (Cambios viernes 07/11)
