@@ -15,6 +15,8 @@ Para simular la carga de amoníaco, se realizan balances de masa y energía, ade
 
 **Definiciones**
 
+![alt text](<Archivos Charla Relámpago/definiciones.png>)
+
 - $\dot{m}_{L}$: Flujo másico de entrada al estanque $[kg/s]$.
 - $\dot{B}_{L}$: Tasa de evaporación de líquido $[kg/s]$.
 - $\dot{B}$: Tasa de *Boil-off gas* $[kg/s]$.
