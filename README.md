@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-# Proyecto_IIQ3843
-
-Repositorio creado para publicar avances del proyecto.
-
-Avances 29/10: Creación de repositorio y verificación de la instalación de la librería ```CryoEvap```
-=======
 # Proyecto: Simulación de transferencia de calor transiente durante la carga y descarga de amoníaco verde refrigerado en tanques cilíndricos verticalmente orientados.
 
 ## Carga de amoníaco
