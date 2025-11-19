@@ -2,6 +2,11 @@
 
 ## Introducción
 
+Es sabido que Chile es uno de los países con mayor potencial de energías renovables. Actualmente existen grandes proyectos de producción de amoniaco verde, entre los cuales destaca el proyecto amoniaco verde en Magallanes, el proyecto Volta para una planta de amoniaco e hidrógeno verde, el proyecto HNH ENERGY de producción y exportación de amoniaco verde [3]. Es crucial que el país sea pionero en lo que a desarrollo tecnológico se refiere para ser líderes de la transición energética mundial hacia energías limpias. 
+
+En esta simulación se simula la carga y descarga de amoníaco en tanques verticalmente orientados isobráricos. Se realiza esta simulación utilizando balances de masa y energía. Si bien está diseñada para amoníaco, puede ser utilizada para evaluar la carga y descarga de cualquier líquido criogénico.
+
+Con este resultado se espera una herramienta para dimensionar parámetros de operación de la planta y dimensionamiento de los equipos, tales como el volumen del tanque, cantidad de gas removido, materialidad para obtener un cierto coeficiente global de transferencia de calor, entre otros.
 
 ## Metodología
 
@@ -16,15 +21,6 @@ Para simular la carga de amoníaco, se realizan balances de masa y energía, ade
 **Definiciones**
 
 ![alt text](<Archivos Charla Relámpago/definiciones.png>)
-
-- $\dot{m}_{L}$: Flujo másico de entrada al estanque $[kg/s]$.
-- $\dot{B}_{L}$: Tasa de evaporación de líquido $[kg/s]$.
-- $\dot{B}$: Tasa de *Boil-off gas* $[kg/s]$.
-- $\dot{Q}_{L} = U_L A_L (T_{air} - T_L)$: Ingreso de calor desde el exterior hacia la fase líquida $[W]$.
-- $\dot{Q}_{V} = U_V (1 - \eta_W) A_V (T_{air} - \overline{T}_v)$: Ingreso de calor desde el exterior hacia la fase de vapor $[W]$
-- $\dot{Q}_{b}$: Ingreso de calor desde el fonde del tanque debido a una fuente externa $[W]$.
-- $\dot{Q}_{VL} = \frac{\pi d_i^2}{4} \overline{k}_v \frac{\partial T}{\partial z}|_{z = 0}$: Ingreso de calor hacia el líquido debido al vapor sobrecalentado mediante conducción $[W]$.
-- $\dot{Q}_{V,w} = \eta_w \dot{Q}_{V}$: Calor del exterior dirigido hacia el vapor que es conducido hacia la interfaz líquido vapor $[W]$.
 
 **Balance de masa en el líquido del tanque**
 
@@ -88,6 +84,29 @@ Para la descarga de amoniaco se utiliza la misma ecuación que para la carga de 
 
 ## Resultados
 
+Para realizar la simulación, se utilizaron los siguientes parámetros [2]:
+
+- $\dot{Q}_{b} = 60 [W]$: Calor de base que ingresa al fondo del tanque
+- $d_i = 76.4 [m]$: Diámetro interior del tanque
+- $d_o = 80 [m]$: Diámetro exterior del tanque
+- $V_{tank} = 165000 [m^3]$: Volumen del tanque.
+- $T_{air} = 298.15 [K]$: Temperatura del ambiente.
+- $U_{L} = 0.19 [\frac{W}{m^2K}]$: Coeficiente global de transferencia de calor para el líquido
+- $U_{V} = 0.19 [\frac{W}{m^2K}]$: Coeficiente global de transferencia de calor para el vapor
+- $L_{F} = 0.55$: Llenado inicial de líquido
+- $P = 116.325 [kPa]$: Presión dentro del tanque
+
+Además, se simulan los siguientes flujos másicos considerando carga y descarga del tanque:
+
+1) $\dot{m}_{L_1} = -25 [\frac{kg}{s}]$
+2) $\dot{m}_{L_2} = -10 [\frac{kg}{s}]$
+3) $\dot{m}_{L_3} = -5 [\frac{kg}{s}]$
+4) $\dot{m}_{L_4} = -1 [\frac{kg}{s}]$
+5) $\dot{m}_{L_5} = 0 [\frac{kg}{s}]$
+6) $\dot{m}_{L_6} = 1 [\frac{kg}{s}]$
+7) $\dot{m}_{L_7} = 5 [\frac{kg}{s}]$
+8) $\dot{m}_{L_8} = 10 [\frac{kg}{s}]$
+
 Los principales resultados obtenidos para esta simulación son los siguientes:
 
 1) ***Boil-off gas rate***: Mientras mayor es el flujo másico de entrada, mayor es el flujo másico de gas evacuado. En los siguientes gráficos se muestra tanto el *boil-off gas rate* $\dot{B}$ en función del tiempo como la relación entre $\dot{B}$ y $\dot{m}_L$
@@ -112,8 +131,6 @@ En el siguiente gif se muestra un ejemplo del llenado de llenado de un tanque de
 ![alt text](animated_pygame.gif)
 
 ## Conclusiones
-
-Es sabido que Chile es uno de los países con mayor potencial de energías renovables. Actualmente existen grandes proyectos de producción de amoniaco verde, entre los cuales destaca el proyecto amoniaco verde en Magallanes, el proyecto Volta para una planta de amoniaco e hidrógeno verde, el proyecto HNH ENERGY de producción y exportación de amoniaco verde [3]. Es crucial que el país sea pionero en lo que a desarrollo tecnológico se refiere para ser líderes de la transición energética mundial hacia energías limpias. 
 
 Este tipo de simulaciones son importantes ya que ayudan a los proyectos que están en calificación a dimensionar sus equipos, producción y funcionamiento. Esta simulación demuestra que si se desease aumentar la producción de amoniaco (y por ende, que aumente el flujo másico hacia los tanques), se debe considerar un costo mayor tanto de operación como de inversión de los equipos recuperadores del *boil-off gas*, por lo que en base a este tipo de simulaciones se puede determinar la producción óptima de amoniaco en la planta. Este modelo, si bien posee algunos supuestos, es crucial para desarrollar un buen dimensionamiento de los equipos necesarios para la planta, siendo una oportunidad de innovación para poder combatir estas dificultades que se presentan.
 
